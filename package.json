@@ -1,0 +1,11 @@
+{
+  "name": "parchis-3",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Parchís online para 3 móviles, sin servidor (GitHub Pages + PeerJS)",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 8080"
+  }
+}

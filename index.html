@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1b2233" />
+  <title>Parchís a 3</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <!-- Inicio -->
+  <section id="inicio" class="pantalla activa">
+    <h1>🎲 Parchís <span>a 3</span></h1>
+    <p class="sub">Cada uno desde su móvil. Sin instalar nada.</p>
+
+    <label class="campo">Tu nombre
+      <input id="nombre" maxlength="14" autocomplete="nickname" placeholder="Alex" />
+    </label>
+
+    <button id="crear" class="btn primario">Crear sala</button>
+
+    <div class="unirse">
+      <input id="codigo" maxlength="4" placeholder="CÓDIGO" autocapitalize="characters" autocomplete="off" />
+      <button id="unirse" class="btn">Unirse</button>
+    </div>
+
+    <button id="recuperar" class="btn fantasma" hidden>Recuperar partida</button>
+    <button id="local" class="btn fantasma">Probar en un solo móvil</button>
+  </section>
+
+  <!-- Sala de espera -->
+  <section id="sala" class="pantalla">
+    <h2>Sala</h2>
+    <div class="codigo-sala" id="codigoSala">····</div>
+    <button id="compartir" class="btn">Compartir enlace</button>
+    <ul id="jugadores" class="jugadores"></ul>
+    <label class="opcion" id="opcionSiete"><input type="checkbox" id="seisSiete" checked /> El 6 cuenta 7 si no te quedan fichas en casa</label>
+    <button id="empezar" class="btn primario" disabled>Empezar</button>
+    <p id="esperando" class="sub">Esperando a que el anfitrión empiece…</p>
+    <button class="btn fantasma salir">Salir</button>
+  </section>
+
+  <!-- Partida -->
+  <section id="partida" class="pantalla">
+    <header class="barra">
+      <div id="marcador" class="marcador"></div>
+    </header>
+    <div id="tablero" class="tablero-wrap"></div>
+    <div class="controles">
+      <div id="turno" class="turno"></div>
+      <button id="dado" class="dado" aria-label="Tirar el dado"></button>
+    </div>
+    <ul id="registro" class="registro"></ul>
+    <div class="acciones">
+      <button id="saltar" class="btn fantasma" hidden>Saltar turno</button>
+      <button class="btn fantasma salir">Salir</button>
+    </div>
+
+    <div id="final" class="final" hidden>
+      <div class="final-caja">
+        <div id="finalTexto"></div>
+        <button id="revancha" class="btn primario">Revancha</button>
+        <button class="btn fantasma salir">Salir</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="aviso" class="aviso" hidden></div>
+</body>
+</html>
